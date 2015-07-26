@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B67DB919-B0DC-407F-BFEF-DAEB4D6D79A5</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Somnia</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1272D76F9C7BDAC913A05D1F68A5DDE8261A9B40</key>
 		<string>https://github.com/cob174/Somnia.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Somnia/Somnia.xcodeproj/project.xcworkspace</string>
+	<string>Somnia/Somnia.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1272D76F9C7BDAC913A05D1F68A5DDE8261A9B40</key>

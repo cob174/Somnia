@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848B03131B6572EF00B82C00 /* PedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B03121B6572EF00B82C00 /* PedometerViewController.m */; };
+		848B03151B65740B00B82C00 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B03141B65740B00B82C00 /* CoreMotion.framework */; };
+		848B034A1B658A1300B82C00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B03491B658A1300B82C00 /* ViewController.m */; };
 		84B6BE1D1B604F9E0027D690 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE1C1B604F9E0027D690 /* main.m */; };
 		84B6BE201B604F9E0027D690 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE1F1B604F9E0027D690 /* AppDelegate.m */; };
-		84B6BE231B604F9E0027D690 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE221B604F9E0027D690 /* MasterViewController.m */; };
-		84B6BE261B604F9E0027D690 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE251B604F9E0027D690 /* DetailViewController.m */; };
 		84B6BE291B604F9F0027D690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6BE271B604F9F0027D690 /* Main.storyboard */; };
 		84B6BE2B1B604F9F0027D690 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B6BE2A1B604F9F0027D690 /* Images.xcassets */; };
 		84B6BE2E1B604F9F0027D690 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B6BE2C1B604F9F0027D690 /* LaunchScreen.xib */; };
@@ -28,15 +29,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		848B03111B6572EF00B82C00 /* PedometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedometerViewController.h; sourceTree = "<group>"; };
+		848B03121B6572EF00B82C00 /* PedometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedometerViewController.m; sourceTree = "<group>"; };
+		848B03141B65740B00B82C00 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		848B03481B658A1300B82C00 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		848B03491B658A1300B82C00 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84B6BE171B604F9E0027D690 /* Somnia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Somnia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6BE1B1B604F9E0027D690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B6BE1C1B604F9E0027D690 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84B6BE1E1B604F9E0027D690 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84B6BE1F1B604F9E0027D690 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84B6BE211B604F9E0027D690 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		84B6BE221B604F9E0027D690 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		84B6BE241B604F9E0027D690 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		84B6BE251B604F9E0027D690 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		84B6BE281B604F9F0027D690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84B6BE2A1B604F9F0027D690 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84B6BE2D1B604F9F0027D690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848B03151B65740B00B82C00 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +69,7 @@
 		84B6BE0E1B604F9E0027D690 = {
 			isa = PBXGroup;
 			children = (
+				848B03141B65740B00B82C00 /* CoreMotion.framework */,
 				84B6BE191B604F9E0027D690 /* Somnia */,
 				84B6BE361B604F9F0027D690 /* SomniaTests */,
 				84B6BE181B604F9E0027D690 /* Products */,
@@ -86,14 +90,14 @@
 			children = (
 				84B6BE1E1B604F9E0027D690 /* AppDelegate.h */,
 				84B6BE1F1B604F9E0027D690 /* AppDelegate.m */,
-				84B6BE211B604F9E0027D690 /* MasterViewController.h */,
-				84B6BE221B604F9E0027D690 /* MasterViewController.m */,
-				84B6BE241B604F9E0027D690 /* DetailViewController.h */,
-				84B6BE251B604F9E0027D690 /* DetailViewController.m */,
+				848B03481B658A1300B82C00 /* ViewController.h */,
+				848B03491B658A1300B82C00 /* ViewController.m */,
 				84B6BE271B604F9F0027D690 /* Main.storyboard */,
 				84B6BE2A1B604F9F0027D690 /* Images.xcassets */,
 				84B6BE2C1B604F9F0027D690 /* LaunchScreen.xib */,
 				84B6BE1A1B604F9E0027D690 /* Supporting Files */,
+				848B03111B6572EF00B82C00 /* PedometerViewController.h */,
+				848B03121B6572EF00B82C00 /* PedometerViewController.m */,
 			);
 			path = Somnia;
 			sourceTree = "<group>";
@@ -173,6 +177,7 @@
 				TargetAttributes = {
 					84B6BE161B604F9E0027D690 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 7TX62B59X4;
 					};
 					84B6BE321B604F9F0027D690 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -225,9 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B6BE201B604F9E0027D690 /* AppDelegate.m in Sources */,
-				84B6BE231B604F9E0027D690 /* MasterViewController.m in Sources */,
 				84B6BE1D1B604F9E0027D690 /* main.m in Sources */,
-				84B6BE261B604F9E0027D690 /* DetailViewController.m in Sources */,
+				848B034A1B658A1300B82C00 /* ViewController.m in Sources */,
+				848B03131B6572EF00B82C00 /* PedometerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Somnia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Somnia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,6 +429,7 @@
 				84B6BE3F1B604F9F0027D690 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84B6BE401B604F9F0027D690 /* Build configuration list for PBXNativeTarget "SomniaTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +438,7 @@
 				84B6BE421B604F9F0027D690 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
