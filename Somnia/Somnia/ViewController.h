@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
+
+double currentMaxAccY;
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *accY;
+@property (strong, nonatomic) IBOutlet UILabel *maxAccY;
+
+@property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end
+
+

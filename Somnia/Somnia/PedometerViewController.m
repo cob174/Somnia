@@ -8,10 +8,15 @@
 
 #import "PedometerViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface PedometerViewController ()
+
+@property (strong, nonatomic) NSArray *serviceArray;
 @property (strong, nonatomic) CMPedometer *pedometer;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (strong, nonatomic) CMMotionActivityManager *cmManager;
+@property (strong, nonatomic) NSOperationQueue *motionActivityQueue;
 @property NSDate *startDate;
 
 @end
@@ -20,23 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.stepsLabel.text = @"";
     // Do any additional setup after loading the view.
-    if ([CMPedometer isStepCountingAvailable]) {
-        
-        self.pedometer = [[CMPedometer alloc] init];
-        _startDate = [NSDate date];
-        
-    } else {
-        NSLog(@"step count not available");
-    }
-    
-    [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *pedometerData, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"data:%@, error:%@", pedometerData, error);
-        });
-    }];
-    
     
 }
 
@@ -49,22 +40,6 @@
     return [NSString stringWithFormat:@"%@", obj];
 }
 
-- (void)queryDateFrom:(NSDate *)startDate toDate:(NSDate *)endDate {
-    [self.pedometer queryPedometerDataFromDate:startDate
-                                        toDate:endDate
-                                   withHandler:^(CMPedometerData *pedometerData, NSError *error) {
-                                       NSLog(@"data:%@, error:%@", pedometerData, error);
-                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                           if (error) {
-                                               NSLog(@"error");
-                                           } else {
-                                               self.stepsLabel.text = [self stringWithObject:pedometerData.numberOfSteps];
-                                           }
-                                       });
-                                   }];
-}
-
-
 /*
 #pragma mark - Navigation
 
@@ -74,10 +49,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)queryButtonTapped:(id)sender {
-    NSDate *to = [NSDate date];
-    [self queryDateFrom:_startDate toDate:to];
-}
 
 
 @end

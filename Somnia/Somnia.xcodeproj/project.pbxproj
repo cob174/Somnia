@@ -10,6 +10,7 @@
 		848B03131B6572EF00B82C00 /* PedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B03121B6572EF00B82C00 /* PedometerViewController.m */; };
 		848B03151B65740B00B82C00 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B03141B65740B00B82C00 /* CoreMotion.framework */; };
 		848B034A1B658A1300B82C00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B03491B658A1300B82C00 /* ViewController.m */; };
+		848B034C1B669CE200B82C00 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B034B1B669CE200B82C00 /* AVFoundation.framework */; };
 		84B6BE1D1B604F9E0027D690 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE1C1B604F9E0027D690 /* main.m */; };
 		84B6BE201B604F9E0027D690 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE1F1B604F9E0027D690 /* AppDelegate.m */; };
 		84B6BE291B604F9F0027D690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6BE271B604F9F0027D690 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 		848B03141B65740B00B82C00 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		848B03481B658A1300B82C00 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		848B03491B658A1300B82C00 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		848B034B1B669CE200B82C00 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		848B034D1B66A07500B82C00 /* Somnia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Somnia.entitlements; sourceTree = "<group>"; };
 		84B6BE171B604F9E0027D690 /* Somnia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Somnia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6BE1B1B604F9E0027D690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B6BE1C1B604F9E0027D690 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848B034C1B669CE200B82C00 /* AVFoundation.framework in Frameworks */,
 				848B03151B65740B00B82C00 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +73,7 @@
 		84B6BE0E1B604F9E0027D690 = {
 			isa = PBXGroup;
 			children = (
+				848B034B1B669CE200B82C00 /* AVFoundation.framework */,
 				848B03141B65740B00B82C00 /* CoreMotion.framework */,
 				84B6BE191B604F9E0027D690 /* Somnia */,
 				84B6BE361B604F9F0027D690 /* SomniaTests */,
@@ -88,6 +93,7 @@
 		84B6BE191B604F9E0027D690 /* Somnia */ = {
 			isa = PBXGroup;
 			children = (
+				848B034D1B66A07500B82C00 /* Somnia.entitlements */,
 				84B6BE1E1B604F9E0027D690 /* AppDelegate.h */,
 				84B6BE1F1B604F9E0027D690 /* AppDelegate.m */,
 				848B03481B658A1300B82C00 /* ViewController.h */,
@@ -178,6 +184,17 @@
 					84B6BE161B604F9E0027D690 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 7TX62B59X4;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					84B6BE321B604F9F0027D690 = {
 						CreatedOnToolsVersion = 6.3.2;
