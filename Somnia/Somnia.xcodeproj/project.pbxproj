@@ -10,6 +10,8 @@
 		848B03151B65740B00B82C00 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B03141B65740B00B82C00 /* CoreMotion.framework */; };
 		848B034A1B658A1300B82C00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B03491B658A1300B82C00 /* ViewController.m */; };
 		848B034C1B669CE200B82C00 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B034B1B669CE200B82C00 /* AVFoundation.framework */; };
+		849D5C141B716223002D96DC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D5C131B716223002D96DC /* SWRevealViewController.m */; };
+		849D5C1A1B716312002D96DC /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D5C191B716312002D96DC /* SidebarTableViewController.m */; };
 		84B6BE1D1B604F9E0027D690 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE1C1B604F9E0027D690 /* main.m */; };
 		84B6BE201B604F9E0027D690 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6BE1F1B604F9E0027D690 /* AppDelegate.m */; };
 		84B6BE291B604F9F0027D690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6BE271B604F9F0027D690 /* Main.storyboard */; };
@@ -34,6 +36,10 @@
 		848B03491B658A1300B82C00 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		848B034B1B669CE200B82C00 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		848B034D1B66A07500B82C00 /* Somnia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Somnia.entitlements; sourceTree = "<group>"; };
+		849D5C121B716223002D96DC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		849D5C131B716223002D96DC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		849D5C181B716312002D96DC /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
+		849D5C191B716312002D96DC /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
 		84B6BE171B604F9E0027D690 /* Somnia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Somnia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B6BE1B1B604F9E0027D690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B6BE1C1B604F9E0027D690 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		849D5C111B7161B9002D96DC /* SWRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				849D5C121B716223002D96DC /* SWRevealViewController.h */,
+				849D5C131B716223002D96DC /* SWRevealViewController.m */,
+			);
+			name = SWRevealController;
+			sourceTree = "<group>";
+		};
 		84B6BE0E1B604F9E0027D690 = {
 			isa = PBXGroup;
 			children = (
@@ -90,11 +105,14 @@
 		84B6BE191B604F9E0027D690 /* Somnia */ = {
 			isa = PBXGroup;
 			children = (
+				849D5C111B7161B9002D96DC /* SWRevealController */,
 				848B034D1B66A07500B82C00 /* Somnia.entitlements */,
 				84B6BE1E1B604F9E0027D690 /* AppDelegate.h */,
 				84B6BE1F1B604F9E0027D690 /* AppDelegate.m */,
 				848B03481B658A1300B82C00 /* ViewController.h */,
 				848B03491B658A1300B82C00 /* ViewController.m */,
+				849D5C181B716312002D96DC /* SidebarTableViewController.h */,
+				849D5C191B716312002D96DC /* SidebarTableViewController.m */,
 				84B6BE271B604F9F0027D690 /* Main.storyboard */,
 				84B6BE2A1B604F9F0027D690 /* Images.xcassets */,
 				84B6BE2C1B604F9F0027D690 /* LaunchScreen.xib */,
@@ -241,9 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849D5C1A1B716312002D96DC /* SidebarTableViewController.m in Sources */,
 				84B6BE201B604F9E0027D690 /* AppDelegate.m in Sources */,
 				84B6BE1D1B604F9E0027D690 /* main.m in Sources */,
 				848B034A1B658A1300B82C00 /* ViewController.m in Sources */,
+				849D5C141B716223002D96DC /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

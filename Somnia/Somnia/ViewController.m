@@ -16,6 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     // Do any additional setup after loading the view.
     
     currentMaxAccY = 0;
@@ -24,24 +30,78 @@
     self.motionManager.accelerometerUpdateInterval = .2;
     
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-        [self outputAccelerationData:accelerometerData.acceleration];
-        if (error) {
-            NSLog(@"%@",error);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self outputAccelerationData:accelerometerData.acceleration];
+            if (error) {
+                NSLog(@"%@",error);
+            }
+        });
     }];
-    
+/*
+    [timer invalidate];
+    baseDate = [NSDate date];
+    timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(showTimedActivity) userInfo:nil repeats:YES];
+*/ 
+
 }
 
 - (void)outputAccelerationData:(CMAcceleration)acceleration
 {
-    self.accY.text = [NSString stringWithFormat:@" %.2fg", acceleration.y];
+    self.accY.text = [NSString stringWithFormat:@" %f", acceleration.y];
     if (fabs(acceleration.y) > fabs(currentMaxAccY)) {
         currentMaxAccY = acceleration.y;
     }
     
-    self.maxAccY.text = [NSString stringWithFormat:@" %.2fg", currentMaxAccY];
+    self.maxAccY.text = [NSString stringWithFormat:@" %f", currentMaxAccY];
 }
 
+-(void)showTimedActivity {
+    NSTimeInterval interval = [baseDate timeIntervalSinceNow];
+    double intpart;
+    double fractional = modf(interval, &intpart);
+    NSUInteger hundredth = ABS((int)(fractional*100));
+    NSUInteger seconds = ABS((int)interval);
+    NSUInteger minutes = seconds/60;
+    NSUInteger hours = minutes/60;
+    
+    //time since start
+    //self.avgAccY.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02d", hours, minutes%60, seconds%60, hundredth];
+    
+    if (fabs(interval) < 20) {
+        self.avgAccY.text = [NSString stringWithFormat:@"%f", fabs(interval)];
+    } else
+        self.avgAccY.text = [NSString stringWithFormat:@"complete"];
+
+}
+
+- (IBAction)calibrateButtonPressed:(id)sender {
+
+    calibrateDate = [NSDate date];
+    calibrateTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(showCalibrateActivity) userInfo:nil repeats:NO];
+}
+
+-(void)showCalibrateActivity {
+    self.calibrateMotionManager = [[CMMotionManager alloc] init];
+    self.calibrateMotionManager.accelerometerUpdateInterval = 1;
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (average == 0) {
+                average = accelerometerData.acceleration.y;
+            }
+            self.avgAccY.text = [NSString stringWithFormat:@" %f", average];
+            if (error) {
+                NSLog(@"%@",error);
+            }
+        });
+    }];
+}
+
+- (void)calibrateAccelerationData:(CMAcceleration)acceleration
+{
+    averageY = averageY+acceleration.y;
+    self.avgAccY.text = [NSString stringWithFormat:@" %f", averageY];
+}
 
 
 - (void)didReceiveMemoryWarning {
