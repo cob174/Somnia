@@ -25,34 +25,44 @@
     // Do any additional setup after loading the view.
     
     currentMaxAccY = 0;
+    calories = 0;
     
     self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = .2;
+    self.motionManager.accelerometerUpdateInterval = 1;
     
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             [self outputAccelerationData:accelerometerData.acceleration];
+            
             if (error) {
                 NSLog(@"%@",error);
             }
         });
     }];
-/*
+
     [timer invalidate];
     baseDate = [NSDate date];
     timer = [NSTimer scheduledTimerWithTimeInterval:.01 target:self selector:@selector(showTimedActivity) userInfo:nil repeats:YES];
-*/ 
+ 
 
 }
 
 - (void)outputAccelerationData:(CMAcceleration)acceleration
 {
     self.accY.text = [NSString stringWithFormat:@" %f", acceleration.y];
+    if (isCalibrated == 1) {
+        if (acceleration.y>average-.05 && acceleration.y<average+.05) {
+            calories=calories+4.8;
+        } else
+            calories=calories+9.6;
+    }
+    
     if (fabs(acceleration.y) > fabs(currentMaxAccY)) {
         currentMaxAccY = acceleration.y;
     }
     
-    self.maxAccY.text = [NSString stringWithFormat:@" %f", currentMaxAccY];
+    self.theCalories.text = [NSString stringWithFormat:@" %f", calories];
 }
 
 -(void)showTimedActivity {
@@ -67,24 +77,24 @@
     //time since start
     //self.avgAccY.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02d", hours, minutes%60, seconds%60, hundredth];
     
+    /*
     if (fabs(interval) < 20) {
         self.avgAccY.text = [NSString stringWithFormat:@"%f", fabs(interval)];
     } else
         self.avgAccY.text = [NSString stringWithFormat:@"complete"];
-
+     */
 }
 
 - (IBAction)calibrateButtonPressed:(id)sender {
-
-    calibrateDate = [NSDate date];
-    calibrateTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(showCalibrateActivity) userInfo:nil repeats:NO];
+    baseDate = [NSDate date];
+    timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(showCalibrateActivity) userInfo:nil repeats:NO];
 }
 
 -(void)showCalibrateActivity {
-    self.calibrateMotionManager = [[CMMotionManager alloc] init];
-    self.calibrateMotionManager.accelerometerUpdateInterval = 1;
+    self.calibrationMotionManager = [[CMMotionManager alloc] init];
+    self.calibrationMotionManager.accelerometerUpdateInterval = 1;
     
-    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+    [self.calibrationMotionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (average == 0) {
                 average = accelerometerData.acceleration.y;
@@ -95,12 +105,7 @@
             }
         });
     }];
-}
-
-- (void)calibrateAccelerationData:(CMAcceleration)acceleration
-{
-    averageY = averageY+acceleration.y;
-    self.avgAccY.text = [NSString stringWithFormat:@" %f", averageY];
+    isCalibrated = 1;
 }
 
 
@@ -108,7 +113,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 
